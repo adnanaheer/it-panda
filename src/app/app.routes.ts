@@ -24,66 +24,82 @@ export const routes: Routes = [
     },
     {
       path: 'about',
-      component: AboutUsComponent
+      component: AboutUsComponent,
+      title: 'About Us'
     },
     {
       path: 'Team',
-      component: TeamComponent
+      component: TeamComponent,
+      title: 'Team'
     },
     {
       path: 'contact',
-      component: ContactUsComponent
+      component: ContactUsComponent,
+      title: 'Contact'
     },
     {
       path: 'portfolio',
-      component: PortfolioComponent
+      component: PortfolioComponent,
+      title: 'Portfolio'
     },
     {
       path: 'service',
-      component: ServicesComponent
+      component: ServicesComponent,
+      title: 'Service'
     },
     {
       path: 'careers',
-      component: CareersComponent
+      component: CareersComponent,
+      title: 'Careers'
     },
     {
       path: 'service/angular',
-      component: AngularComponent
+      component: AngularComponent,
+      title: 'Service-Angular'
     },
     {
       path: 'service/cms',
-      component: CmswebComponent
+      component: CmswebComponent,
+       title: 'Service-Cms'
     },
     {
       path: 'service/digitalmarket',
-      component: DigitalmarketingComponent
+      component: DigitalmarketingComponent,
+       title: 'Service-Digital-Marketing'
     },
     {
       path: 'service/erp',
-      component: ErpComponent
+      component: ErpComponent,
+       title: 'Service-Erp'
     },
     {
       path: 'service/graphicdesign',
-      component: GraphicdesignComponent
+      component: GraphicdesignComponent,
+       title: 'Service-Graphic-Design'
     },
     {
       path: 'service/landingpage',
-      component: LandingpagesComponent
+      component: LandingpagesComponent,
+       title: 'Service-Landing-Page'
     },
     {
       path: 'service/mobileapplicationdevelopment',
-      component: MobappdevelopmentComponent
+      component: MobappdevelopmentComponent,
+       title: 'Service-Mobile-Application'
     },
     {
       path: 'service/react',
-      component: ReactComponent
+      component: ReactComponent,
+       title: 'Service-React'
     },
     {
       path: 'service/softwaredevelopment',
-      component: SoftwaredevelopmentComponent
+      component: SoftwaredevelopmentComponent,
+       title: 'Service-Software-Development'
     },
     {
       path: 'service/websitedesign',
-      component: WebdesignComponent
+      component: WebdesignComponent,
+       title: 'Service-Website-Design'
     },
 ];
