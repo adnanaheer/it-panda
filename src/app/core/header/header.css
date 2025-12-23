@@ -1,0 +1,12 @@
+/* Remove underline from all links */
+nav a {
+  text-decoration: none;
+  color: black;
+  transition: color 0.3s;
+}
+
+/* Active link style */
+nav a.active-link {
+  color: #27aae1;
+  text-decoration: none; /* ensure no underline */
+}

@@ -1,53 +1,25 @@
-<nav class="bg-white shadow-md nav">
+<nav class="bg-white text-black">
   <div class="container mx-auto flex justify-between items-center p-4">
     <!-- Logo -->
-     <img src="assets/images/logo/itpanda-logo.png" alt="IT PANDA LOGO" class="h-14 w-48 mr-2">
-   
+    <img src="assets/images/logo/itpanda-logo.png" alt="IT PANDA LOGO" class="h-14 w-48 mr-2">
+
     <!-- Desktop Menu -->
     <ul class="hidden md:flex space-x-6 font-medium">
-      <li><a routerLink="/home" class="">Home</a></li>
-      <li><a routerLink="/about" class="">About Us</a></li>
-
-      <!-- Services Dropdown -->
-      <li class="relative group">
-        <button (click)="toggleServices()" class="flex items-center">
-          Services <i class="bi bi-chevron-compact-down ml-1"></i>
-        </button>
-        <ul class="absolute bg-white shadow-md mt-2 w-64"
-            [class.hidden]="!servicesOpen"
-            (mouseleave)="servicesOpen=false">
-          <li class="flex items-center px-4 py-2 hover:bg-[#E5E7EB]">
-            <img src="assets/images/services/angular.webp" class="h-5 w-5 mr-2">
-            <a routerLink="/services/angular">Angular Development</a>
-          </li>
-           <li class="flex items-center px-4 py-2 hover:bg-[#E5E7EB]">
-            <img src="assets/images/services/react.png" class="h-5 w-5 mr-2">
-            <a routerLink="/services/react">React Development</a>
-          </li>
-           <li class="flex items-center px-4 py-2 hover:bg-[#E5E7EB]">
-            <img src="assets/images/services/wordpress.png" class="h-5 w-5 mr-2">
-            <a routerLink="/services/wordpress">WordPress Development</a>
-          </li>
-          <li class="flex items-center px-4 py-2 hover:bg-[#E5E7EB]">
-            <img src="assets/images/services/se.jpg" class="h-5 w-5 mr-2">
-            <a routerLink="/services/seo">SEO</a>
-          </li>
-          <li class="flex items-center px-4 py-2 hover:bg-[#E5E7EB]">
-            <img src="assets/images/services/ui&ux.avif" class="h-5 w-5 mr-2">
-            <a routerLink="/services/ui&ux">UI UX Design</a>
-          </li>
-          <li class="flex items-center px-4 py-2 hover:bg-[#E5E7EB]">
-            <img src="assets/images/services/graphic-design.avif" class="h-5 w-5 mr-2">
-            <a routerLink="/services/graphic-design">Graphic Design</a>
-          </li>
-        
-        </ul>
+      <li>
+        <a routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">Home</a>
       </li>
-
-    
-        <li><a routerLink="/portfolio" class="">Portfolio</a></li>
-      <li><a routerLink="/career" class="">Career</a></li>
-      <li><a routerLink="/contact" class="">Contact Us</a></li>
+      <li>
+        <a routerLink="/pages/about" routerLinkActive="active-link">About Us</a>
+      </li>
+      <li>
+        <a routerLink="/pages/portfolio" routerLinkActive="active-link">Portfolio</a>
+      </li>
+      <li>
+        <a routerLink="/pages/career" routerLinkActive="active-link">Career</a>
+      </li>
+      <li>
+        <a routerLink="/pages/contact" routerLinkActive="active-link">Contact Us</a>
+      </li>
     </ul>
   </div>
 </nav>

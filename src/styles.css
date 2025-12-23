@@ -1,2 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 @import "tailwindcss";
+
+
+
+.btn {
+    border-radius: 10px;
+    background: linear-gradient(to right, #000000, #3B82F6);
+    color: white;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background: linear-gradient(to right, #1E3A8A, #2563EB); /* darker hover gradient */
+}
+
