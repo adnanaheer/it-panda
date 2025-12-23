@@ -1,4 +1,4 @@
-<nav class="bg-white text-black">
+<nav class="bg-white">
   <div class="container mx-auto flex justify-between items-center p-4">
     <!-- Logo -->
     <img src="assets/images/logo/itpanda-logo.png" alt="IT PANDA LOGO" class="h-14 w-48 mr-2">
@@ -11,6 +11,40 @@
       <li>
         <a routerLink="/pages/about" routerLinkActive="active-link">About Us</a>
       </li>
+
+      <!-- Services Dropdown -->
+      <li class="relative group z-50">
+        <button (click)="toggleServices()" class="flex items-center">
+          Services <i class="bi bi-chevron-compact-down ml-1"></i>
+        </button>
+        <ul class="absolute bg-white shadow-md mt-2 w-64 z-50" [class.hidden]="!servicesOpen" (mouseleave)="servicesOpen=false">
+          <li class="flex items-center px-4 py-2 hover:bg-[#E5E7EB]">
+            <img src="assets/images/services/angular.webp" class="h-5 w-5 mr-2">
+            <a routerLink="/services/angular" routerLinkActive="active-link">Angular Development</a>
+          </li>
+          <li class="flex items-center px-4 py-2 hover:bg-[#E5E7EB]">
+            <img src="assets/images/services/react.png" class="h-5 w-5 mr-2">
+            <a routerLink="/services/react" routerLinkActive="active-link">React Development</a>
+          </li>
+          <li class="flex items-center px-4 py-2 hover:bg-[#E5E7EB]">
+            <img src="assets/images/services/wordpress.png" class="h-5 w-5 mr-2">
+            <a routerLink="/services/wordpress" routerLinkActive="active-link">WordPress Development</a>
+          </li>
+          <li class="flex items-center px-4 py-2 hover:bg-[#E5E7EB]">
+            <img src="assets/images/services/se.jpg" class="h-5 w-5 mr-2">
+            <a routerLink="/services/seo" routerLinkActive="active-link">SEO</a>
+          </li>
+          <li class="flex items-center px-4 py-2 hover:bg-[#E5E7EB]">
+            <img src="assets/images/services/ui&ux.avif" class="h-5 w-5 mr-2">
+            <a routerLink="/services/ui&ux" routerLinkActive="active-link">UI UX Design</a>
+          </li>
+          <li class="flex items-center px-4 py-2 hover:bg-[#E5E7EB]">
+            <img src="assets/images/services/graphic-design.avif" class="h-5 w-5 mr-2">
+            <a routerLink="/services/graphic-design" routerLinkActive="active-link">Graphic Design</a>
+          </li>
+        </ul>
+      </li>
+
       <li>
         <a routerLink="/pages/portfolio" routerLinkActive="active-link">Portfolio</a>
       </li>
