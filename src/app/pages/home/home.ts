@@ -1,8 +1,9 @@
 import { Component, OnInit, OnDestroy} from '@angular/core';
+import { Testimonial } from '../../shared/testimonial/testimonial';
 
 @Component({
   selector: 'app-home',
-  imports: [],
+  imports: [Testimonial],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
