@@ -8,9 +8,11 @@
     background: linear-gradient(to right, #000000, #3B82F6);
     color: white;
     transition: background 0.3s ease;
+    font-weight: bold;
+
 }
 
 .btn:hover {
-    background: linear-gradient(to right, #1E3A8A, #2563EB); /* darker hover gradient */
+    background: linear-gradient(to right, #1E3A8A, #2563EB); 
 }
 
