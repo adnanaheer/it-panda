@@ -1,12 +1,12 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, Inject, PLATFORM_ID } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { isPlatformBrowser } from '@angular/common';
 import { Header } from './core/header/header';
 import { Footer } from './core/footer/footer';
-import * as AOS from 'aos';
 
 @Component({
   selector: 'app-root',
-  standalone: true, 
+  standalone: true,
   imports: [RouterOutlet, Header, Footer],
   templateUrl: './app.html',
   styleUrl: './app.css'
@@ -14,13 +14,23 @@ import * as AOS from 'aos';
 export class App {
   protected readonly title = signal('itpanda');
 
-ngOnInit(): void {
-    AOS.init({
-      once: false,  
-    });
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+
+  ngOnInit(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      import('aos').then(AOS => {
+        AOS.default.init({
+          once: false,
+        });
+      });
+    }
   }
 
   ngAfterViewInit(): void {
-    AOS.refresh();  
+    if (isPlatformBrowser(this.platformId)) {
+      import('aos').then(AOS => {
+        AOS.default.refresh();
+      });
+    }
   }
 }
