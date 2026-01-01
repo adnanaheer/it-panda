@@ -1,0 +1,26 @@
+.breadcrumb-link {
+  color: white;             
+  text-decoration: none;     
+  transition: all 0.3s ease; 
+}
+
+.breadcrumb-link:hover {
+  color: #27aae1;       
+  text-decoration: underline;
+}
+
+.service-box {
+  color: white; 
+  transition: all 0.3s ease; 
+}
+
+.service-box:hover {
+  background-color: white; 
+  color: black;           
+}
+
+.service-box:hover h3,
+.service-box:hover p {
+  color: black; 
+}
+
