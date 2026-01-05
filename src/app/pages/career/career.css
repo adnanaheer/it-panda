@@ -1,0 +1,89 @@
+/* Career Cards */
+.career-card {
+  background: #fff;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  color: #374151;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.career-card:hover {
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
+  transform: translateY(-4px);
+}
+
+.career-card i {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #3b82f6;
+  color: #fff;
+  font-size: 20px;
+}
+
+.career-card h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #061b33;
+  margin-bottom: 4px;
+}
+
+.career-card span {
+  display: block;
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 12px;
+}
+
+/* Why Work With Us Cards */
+.why-card {
+  background: #fff;
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.why-card i {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #3b82f6;
+  color: #fff;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.why-card h3 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #061b33;
+  margin-bottom: 8px;
+}
+
+.why-card p {
+  font-size: 18px;
+  color: #374151;
+  line-height: 1.6;
+}
+
+.breadcrumb-link {
+  color: white;             
+  text-decoration: none;     
+  transition: all 0.3s ease; 
+}
+
+.breadcrumb-link:hover {
+  color: #27aae1;       
+  text-decoration: underline;
+}

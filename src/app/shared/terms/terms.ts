@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-career',
+  selector: 'app-terms',
   imports: [RouterLink],
-  templateUrl: './career.html',
-  styleUrl: './career.css',
+  templateUrl: './terms.html',
+  styleUrl: './terms.css',
 })
-export class Career {
+export class Terms {
 
 }

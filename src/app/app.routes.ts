@@ -11,12 +11,14 @@ import { Wordpress } from './pages/services/wordpress/wordpress';
 import { Seo } from './pages/services/seo/seo';
 import { UiUx } from './pages/services/ui-ux/ui-ux';
 import { GraphicDesign } from './pages/services/graphic-design/graphic-design';
+import { Faq } from './shared/faq/faq';
+import { Form } from './shared/form/form';
+import { Terms } from './shared/terms/terms';
 
 export const routes: Routes = [
     {path:'', component: Home, title: 'Home'},
     {path:'pages/about', component:About, title: 'About-Us'},
     {path:'pages/services', component:Services, title: 'Services-Us'},
-    {path:'pages/portfolio', component:Portfolio, title: 'Portfolio'},
     {path: 'pages/career', component:Career, title: 'Career'},
     {path: 'pages/contact', component:Contact, title: 'Contact-Us'},
     {path: 'pages/services/angular', component:Angular, title: 'Services/Angular'},
@@ -24,5 +26,9 @@ export const routes: Routes = [
     {path: 'pages/services/wordpress', component:Wordpress, title: 'Services/Wordpress'},
     {path: 'pages/services/seo', component:Seo, title: 'Services/SEO'},
     {path: 'pages/services/ui-ux', component:UiUx, title: 'Services/UI and UX'},
-    {path: 'pages/services/graphic-design', component:GraphicDesign, title: 'Services/Graphic Dsign'}
+    {path: 'pages/services/graphic-design', component:GraphicDesign, title: 'Services/Graphic Dsign'},
+    {path: 'shared/faq', component:Faq, title: "FAQ's"},
+    {path: 'shared/terms', component:Terms, title: 'Terms & Conditions'}
+
+
 ];
