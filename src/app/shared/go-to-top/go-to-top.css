@@ -1,0 +1,19 @@
+.gotop {
+    position: fixed;
+    right: 10px;
+    bottom: 0px;
+    color: #27AAE1;
+}
+
+.btn-dark {
+    border-radius: 0%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    opacity: 50%;
+}
+
+.btn-dark:hover {
+    opacity: 90%;
+    transform: scale(1.2);
+    transition: all 0.5s linear;
+}
