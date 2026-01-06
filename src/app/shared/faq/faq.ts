@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Topbutton } from '../topbutton/topbutton';
+
 @Component({
   selector: 'app-faq',
-  imports: [CommonModule],
+  imports: [CommonModule,Topbutton],
   templateUrl: './faq.html',
   styleUrl: './faq.css',
 })
