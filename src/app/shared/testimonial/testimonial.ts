@@ -56,7 +56,6 @@ testimonials = [
 ];
 
   ngOnInit() {
-    // Angular change detection ke liye zone aware setInterval
     this.interval = setInterval(() => {
       this.currentIndex = (this.currentIndex + 1) % this.testimonials.length;
     }, 4000);
