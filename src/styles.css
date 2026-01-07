@@ -16,3 +16,8 @@
     background: linear-gradient(to right, #1E3A8A, #2563EB); 
 }
 
+/* ===== SSR + AOS FIX ===== */
+/* [data-aos] {
+  opacity: 1 !important;
+  transform: none !important;
+} */

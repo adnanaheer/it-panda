@@ -1,5 +1,5 @@
-import { Component, signal, Inject, PLATFORM_ID } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {Component,signal,Inject,PLATFORM_ID,AfterViewInit,OnInit} from '@angular/core';
+import { Router, NavigationEnd, RouterOutlet } from '@angular/router';
 import { isPlatformBrowser } from '@angular/common';
 import { Header } from './core/header/header';
 import { Footer } from './core/footer/footer';
@@ -11,16 +11,21 @@ import { Footer } from './core/footer/footer';
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
-export class App {
+export class App implements OnInit, AfterViewInit {
   protected readonly title = signal('itpanda');
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {
       import('aos').then(AOS => {
         AOS.default.init({
           once: false,
+          duration: 800,
+          easing: 'ease-in-out'
         });
       });
     }
@@ -28,8 +33,12 @@ export class App {
 
   ngAfterViewInit(): void {
     if (isPlatformBrowser(this.platformId)) {
-      import('aos').then(AOS => {
-        AOS.default.refresh();
+      this.router.events.subscribe(event => {
+        if (event instanceof NavigationEnd) {
+          import('aos').then(AOS => {
+            AOS.default.refresh();
+          });
+        }
       });
     }
   }
