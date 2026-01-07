@@ -9,12 +9,7 @@ import { RouterLink,RouterModule } from '@angular/router';
   styleUrl: './header.css',
 })
 export class Header {
-  servicesOpen = false;
-  marketingOpen = false;
 
-  toggleServices() {
-    this.servicesOpen = !this.servicesOpen;
-  }
 
   
 }

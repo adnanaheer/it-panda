@@ -4,7 +4,7 @@
     <img src="assets/images/logo/itpanda-logo.png" alt="IT PANDA LOGO" class="h-14 w-48 mr-2">
 
     <!-- Desktop Menu -->
-    <ul class="hidden md:flex space-x-6 font-medium">
+    <ul class="hidden md:flex space-x-14 font-medium items-center">
       <li>
         <a routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">Home</a>
       </li>
@@ -14,33 +14,39 @@
 
       <!-- Services Dropdown -->
       <li class="relative group z-50">
-        <button (click)="toggleServices()" class="flex items-center">
-          Services <i class="bi bi-chevron-compact-down ml-1"></i>
-        </button>
-        <ul class="absolute bg-white shadow-md mt-2 w-64 z-50" [class.hidden]="!servicesOpen" (mouseleave)="servicesOpen=false">
+        <a class="flex items-center cursor-pointer py-2">Services
+          <i class="bi bi-chevron-compact-down ml-1"></i>
+        </a>
+        <!-- Dropdown -->
+        <ul
+          class="absolute top-full left-0
+                 bg-white shadow-md w-64 z-50
+                 hidden group-hover:block rounded-lg">
+
           <li class="flex items-center px-4 py-2 hover:bg-[#E5E7EB]">
             <img src="assets/images/header/angular.webp" class="h-5 w-5 mr-2">
-            <a routerLink="pages/services/angular" routerLinkActive="active-link">Angular Development</a>
+            <a routerLink="pages/services/angular">Angular Development</a>
           </li>
+
           <li class="flex items-center px-4 py-2 hover:bg-[#E5E7EB]">
             <img src="assets/images/header/react.png" class="h-5 w-5 mr-2">
-            <a routerLink="pages/services/react" routerLinkActive="active-link">React Development</a>
+            <a routerLink="pages/services/react">React Development</a>
           </li>
           <li class="flex items-center px-4 py-2 hover:bg-[#E5E7EB]">
             <img src="assets/images/header/wordpress.png" class="h-5 w-5 mr-2">
-            <a routerLink="pages/services/wordpress" routerLinkActive="active-link">WordPress Development</a>
+            <a routerLink="pages/services/wordpress">WordPress Development</a>
           </li>
           <li class="flex items-center px-4 py-2 hover:bg-[#E5E7EB]">
             <img src="assets/images/header/seo.jpg" class="h-5 w-5 mr-2">
-            <a routerLink="pages/services/seo" routerLinkActive="active-link">SEO</a>
+            <a routerLink="pages/services/seo">SEO</a>
           </li>
           <li class="flex items-center px-4 py-2 hover:bg-[#E5E7EB]">
-            <img src="assets/images/header/ui&ux.avif" class="h-5 w-5 mr-2">
-            <a routerLink="pages/services/ui-ux" routerLinkActive="active-link">UI UX Design</a>
+            <img src="assets/images/header/ui_ux.png" class="h-5 w-5 mr-2">
+            <a routerLink="pages/services/ui-ux">UI UX Design</a>
           </li>
           <li class="flex items-center px-4 py-2 hover:bg-[#E5E7EB]">
-            <img src="assets/images/header/graphic-design.avif" class="h-5 w-5 mr-2">
-            <a routerLink="pages/services/graphic-design" routerLinkActive="active-link">Graphic Design</a>
+            <img src="assets/images/header/graphic-design.png" class="h-5 w-5 mr-2">
+            <a routerLink="pages/services/graphic-design">Graphic Design</a>
           </li>
         </ul>
       </li>
@@ -53,3 +59,5 @@
     </ul>
   </div>
 </nav>
+
+
