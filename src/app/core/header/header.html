@@ -1,33 +1,28 @@
-<nav class="bg-white">
+<nav class="bg-white shadow">
   <div class="container mx-auto flex justify-between items-center p-4">
     <!-- Logo -->
     <img src="assets/images/logo/itpanda-logo.png" alt="IT PANDA LOGO" class="h-14 w-48 mr-2">
 
+    <!-- Mobile Toggle Button -->
+    <button class="md:hidden text-2xl" (click)="mobileOpen = !mobileOpen">
+      <i class="bi" [ngClass]="mobileOpen ? 'bi-x' : 'bi-list'"></i>
+    </button>
+
     <!-- Desktop Menu -->
     <ul class="hidden md:flex space-x-14 font-medium items-center">
-      <li>
-        <a routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">Home</a>
-      </li>
-      <li>
-        <a routerLink="/pages/about" routerLinkActive="active-link">About Us</a>
-      </li>
+      <li><a routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">Home</a></li>
+      <li><a routerLink="/pages/about" routerLinkActive="active-link">About Us</a></li>
 
       <!-- Services Dropdown -->
       <li class="relative group z-50">
         <a class="flex items-center cursor-pointer py-2">Services
           <i class="bi bi-chevron-compact-down ml-1"></i>
         </a>
-        <!-- Dropdown -->
-        <ul
-          class="absolute top-full left-0
-                 bg-white shadow-md w-64 z-50
-                 hidden group-hover:block rounded-lg">
-
+        <ul class="absolute top-full left-0 bg-white shadow-md w-64 z-50 hidden group-hover:block rounded-lg">
           <li class="flex items-center px-4 py-2 hover:bg-[#E5E7EB]">
             <img src="assets/images/header/angular.webp" class="h-5 w-5 mr-2">
             <a routerLink="pages/services/angular">Angular Development</a>
           </li>
-
           <li class="flex items-center px-4 py-2 hover:bg-[#E5E7EB]">
             <img src="assets/images/header/react.png" class="h-5 w-5 mr-2">
             <a routerLink="pages/services/react">React Development</a>
@@ -50,14 +45,25 @@
           </li>
         </ul>
       </li>
-      <li>
-        <a routerLink="/pages/career" routerLinkActive="active-link">Career</a>
-      </li>
-      <li>
-        <a routerLink="/pages/contact" routerLinkActive="active-link">Contact Us</a>
-      </li>
+
+      <li><a routerLink="/pages/career" routerLinkActive="active-link">Career</a></li>
+      <li><a routerLink="/pages/contact" routerLinkActive="active-link">Contact Us</a></li>
+    </ul>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div *ngIf="mobileOpen" class="md:hidden bg-white shadow-lg">
+    <ul class="flex flex-col space-y-4 p-4 font-medium">
+      <li><a routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">Home</a></li>
+      <li><a routerLink="/pages/about" routerLinkActive="active-link">About Us</a></li>
+      <li><a routerLink="/pages/services/angular">Angular Development</a></li>
+      <li><a routerLink="/pages/services/react">React Development</a></li>
+      <li><a routerLink="/pages/services/wordpress">WordPress Development</a></li>
+      <li><a routerLink="/pages/services/seo">SEO</a></li>
+      <li><a routerLink="/pages/services/ui-ux">UI UX Design</a></li>
+      <li><a routerLink="/pages/services/graphic-design">Graphic Design</a></li>
+      <li><a routerLink="/pages/career">Career</a></li>
+      <li><a routerLink="/pages/contact">Contact Us</a></li>
     </ul>
   </div>
 </nav>
-
-
