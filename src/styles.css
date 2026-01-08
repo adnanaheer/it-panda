@@ -10,14 +10,10 @@
     transition: background 0.3s ease;
     font-weight: bold;
 
-}
+} 
 
 .btn:hover {
-    background: linear-gradient(to right, #1E3A8A, #2563EB); 
+    background: linear-gradient(to right, #0044ff, #2563EB); 
 }
 
-/* ===== SSR + AOS FIX ===== */
-/* [data-aos] {
-  opacity: 1 !important;
-  transform: none !important;
-} */
+

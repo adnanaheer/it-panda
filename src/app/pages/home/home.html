@@ -1,19 +1,19 @@
 <!-- Hero Section -->
+
 <section class="relative w-full bg-white overflow-hidden">
 
-    <!-- RIGHT BACKGROUND IMAGE -->
-    <div class="absolute inset-y-0 right-0 w-full lg:w-1/2 z-0">
-        <img src="assets/images/home/hero-illustration.jpg" alt="IT Panda Background"
-            class="h-full w-full object-cover opacity-90" />
-        <div class="absolute inset-0 bg-linear-to-l from-white/10 to-white"></div>
+  <div class="container mx-auto px-6 lg:px-20 py-20 grid grid-cols-1 lg:grid-cols-2 items-center gap-12">
+
+    <!-- LEFT ILLUSTRATION -->
+    <div class="flex justify-center lg:justify-start" data-aos="fade-right">
+      <img src="assets/video/hero-illustration.gif" 
+           alt="Hero Illustration" 
+           class="  custom-img " />
     </div>
 
-    <!-- CONTENT -->
-    <div class="relative z-10 container mx-auto px-6 lg:px-20 py-28">
-        <div class="grid grid-cols-1 lg:grid-cols-2 items-center">
-
-            <!-- LEFT CONTENT -->
-            <div class="max-w-2xl" data-aos="fade-right">
+    <!-- RIGHT CONTENT -->
+    <div class="max-w-xl" data-aos="fade-left">
+        <div class="max-w-2xl" data-aos="fade-right">
                 <h1 class="text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight">
                     Transform Your Vision Into
                     <span class="block text-[#27aae1] mt-4">
@@ -38,58 +38,73 @@
                     </div>
                 </div>
             </div>
-
-        </div>
     </div>
+
+  </div>
 </section>
+
+
 <!-- Company Stats And Intro -->
-<section class="bg-linear-to-r from-[#000000] to-[#1E3A8A] text-white py-16">
-    <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center px-6">
+<section class="relative bg-linear-to-r from-[#000000] to-[#1E3A8A] text-white py-16 overflow-hidden">
 
+    <div class="absolute top-0 left-0 w-full overflow-hidden leading-none">
+        <svg viewBox="0 0 1440 120" preserveAspectRatio="none" class="w-full h-30">
+            <path 
+                d="M0,80 C240,0 480,0 720,40 960,80 1200,80 1440,40 L1440,0 L0,0 Z"
+                fill="#ffffff">
+            </path>
+        </svg>
+    </div>
+    <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center px-6 pt-24">
 
-        <!-- Left Side: Stats -->
+        <!-- LEFT SIDE -->
         <div class="space-y-6">
             <div class="flex items-center space-x-4">
                 <i class="fas fa-flag text-[#3B82F6] text-3xl"></i>
                 <span class="text-lg font-semibold">5+ Years in the Field</span>
             </div>
+
             <div class="flex items-center space-x-4">
                 <i class="fas fa-thumbs-up text-[#3B82F6] text-3xl"></i>
                 <span class="text-lg font-semibold">350+ Trusted Customers</span>
             </div>
+
             <div class="flex items-center space-x-4">
                 <i class="fas fa-map-marker-alt text-[#3B82F6] text-3xl"></i>
                 <span class="text-lg font-semibold">Located in Karachi</span>
             </div>
+
             <div class="flex items-center space-x-4">
                 <i class="fas fa-users text-[#3B82F6] text-3xl"></i>
                 <span class="text-lg font-semibold">12+ Professional Team Members</span>
             </div>
         </div>
 
-        <!-- Company Description -->
+        <!-- RIGHT SIDE -->
         <div>
             <h2 class="text-2xl md:text-3xl font-bold mb-4">
                 A Reliable <span class="text-[#3B82F6]">Web Design & Software</span> Company in Karachi
             </h2>
+
             <p class="text-gray-200 mb-4">
                 We deliver measurable results through rigorous performance benchmarking. Our team consistently achieves
-                top-tier metrics in page speed, reliability, and user experience, ensuring your digital assets
-                outperform competitors across all key indicators
+                top-tier metrics in page speed, reliability, and user experience.
             </p>
+
             <p class="text-gray-200 mb-4">
                 Every project is optimized against industry standards including Core Web Vitals, accessibility scores,
-                and conversion metrics. From initial development to ongoing monitoring, we maintain performance
-                excellence that translates directly into better user engagement and business outcomes.
+                and conversion metrics.
             </p>
+
             <button routerLink="/pages/about"
-                class="btn inline-block bg-[#3B82F6] text-white px-6 py-3 rounded-lg shadow hover:bg-blue-700">
+                class="inline-block btn bg-[#3B82F6] text-white px-6 py-3 rounded-lg shadow hover:bg-blue-700">
                 Discover More
             </button>
         </div>
 
     </div>
 </section>
+
 
 
 
