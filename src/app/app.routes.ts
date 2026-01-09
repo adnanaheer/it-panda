@@ -12,7 +12,6 @@ import { Seo } from './pages/services/seo/seo';
 import { UiUx } from './pages/services/ui-ux/ui-ux';
 import { GraphicDesign } from './pages/services/graphic-design/graphic-design';
 import { Faq } from './shared/faq/faq';
-import { Form } from './shared/form/form';
 import { Terms } from './shared/terms/terms';
 
 export const routes: Routes = [
