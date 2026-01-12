@@ -2,7 +2,6 @@ import { Routes } from '@angular/router';
 import { Home } from './pages/home/home';
 import { About } from './pages/about/about';
 import { Contact } from './pages/contact/contact';
-import { Portfolio } from './pages/portfolio/portfolio';
 import { Services } from './pages/services/services';
 import { Career } from './pages/career/career';
 import { Angular } from './pages/services/angular/angular';
@@ -13,6 +12,7 @@ import { UiUx } from './pages/services/ui-ux/ui-ux';
 import { GraphicDesign } from './pages/services/graphic-design/graphic-design';
 import { Faq } from './shared/faq/faq';
 import { Terms } from './shared/terms/terms';
+import { PageNotFound } from './pages/page-not-found/page-not-found';
 
 export const routes: Routes = [
     {path:'', component: Home, title: 'Home'},
@@ -27,7 +27,9 @@ export const routes: Routes = [
     {path: 'pages/services/ui-ux', component:UiUx, title: 'Services/UI and UX'},
     {path: 'pages/services/graphic-design', component:GraphicDesign, title: 'Services/Graphic Dsign'},
     {path: 'shared/faq', component:Faq, title: "FAQ's"},
-    {path: 'shared/terms', component:Terms, title: 'Terms & Conditions'}
+    {path: 'shared/terms', component:Terms, title: 'Terms & Conditions'},
+    {path: '**', component:PageNotFound, title: '404 Eroor'},
+
 
 
 ];
