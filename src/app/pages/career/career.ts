@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+// import { RouterLink } from '@angular/router';
 import { Topbutton } from '../../shared/topbutton/topbutton';
 
 @Component({
   selector: 'app-career',
-  imports: [RouterLink,Topbutton],
+  imports: [Topbutton],
   templateUrl: './career.html',
   styleUrl: './career.css',
 })

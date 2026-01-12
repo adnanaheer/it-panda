@@ -1,93 +1,133 @@
-<section class="overflow-x-hidden">
-  <div class="flex flex-col md:flex-row
-           bg-gray-100 p-4 md:p-8
-           gap-6 md:gap-12">
+<section class="overflow-x-hidden bg-white py-20">
+    <div class="max-w-7xl mx-auto px-4">
 
-    <!-- Form Section -->
-    <div class="w-full md:w-2/3 bg-white p-6 md:p-8 rounded-xl shadow-lg">
-      <h2 class="text-2xl md:text-3xl font-semibold text-black mb-4">
-        Write To Us!
-      </h2>
+        <div class="flex flex-col lg:flex-row items-center gap-16">
 
-      <form class="space-y-4">
-        <div class="flex flex-col md:flex-row gap-4">
-          <div class="w-full md:w-1/2">
-            <label class="text-lg font-medium text-black">First Name</label>
-            <input type="text" class="w-full p-3 mt-1 rounded-md border border-gray-300" placeholder="First Name">
-          </div>
+            <!-- LEFT : Speech Bubble -->
+            <div class="relative w-full lg:w-1/2 flex justify-center">
 
-          <div class="w-full md:w-1/2">
-            <label class="text-lg font-medium text-black">Last Name</label>
-            <input type="text" class="w-full p-3 mt-1 rounded-md border border-gray-300" placeholder="Last Name">
-          </div>
+                <!-- Cyan glow shadow -->
+                <div class="absolute -left-6 bottom-16 w-95 h-80
+                 bg-cyan-500/40 blur-sm rounded-4xl">
+                </div>
+
+                <!-- Main bubble -->
+                <div class="relative z-10 w-95 h-80
+                 bg-[#fdfdfd] border border-cyan-400
+                 rounded-4xl
+                 flex items-center justify-center text-center
+                 px-10">
+
+                    <h2 class="text-black text-4xl font-serif leading-snug">
+                        Lets Talk<br />
+                        About your<br />
+                        Business
+                    </h2>
+
+                    <!-- Bubble tail -->
+                    <div class="absolute -bottom-10 left-16
+                   w-0 h-0
+                   border-l-30 border-l-transparent
+                   border-r-10 border-r-transparent
+                   border-t-40 border-t-[#f7f5f5]">
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT : Form -->
+            <div class="w-full lg:w-1/2">
+
+                <h2 class="text-3xl font-bold text-black mb-3">
+                    Drop Us a Message
+                </h2>
+
+                <p class="text-gray-400 mb-8 max-w-md">
+                    We are always happy to hear from you! Please complete the form
+                    and we will get in touch with you.
+                </p>
+
+                <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)" class="space-y-5" novalidate>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <!-- Name -->
+                        <div>
+                            <input type="text" placeholder="Your Name*" name="name" [(ngModel)]="formData.name" required
+                                #name="ngModel" class="w-full p-4 bg-[#ffffff] text-black border border-cyan-400/40 rounded-md
+               focus:outline-none focus:ring-2 focus:ring-cyan-400" />
+
+                            @if (name.invalid && name.touched) {
+                            <div class="text-red-600 mt-1">
+                                Name is required
+                            </div>
+                            }
+                        </div>
+
+                        <!-- Email -->
+                        <div>
+                            <input type="email" placeholder="Email*" name="email" [(ngModel)]="formData.email" required
+                                email #email="ngModel" class="w-full p-4 bg-[#ffffff] text-black border border-cyan-400/40 rounded-md
+               focus:outline-none focus:ring-2 focus:ring-cyan-400" />
+
+                            @if (email.invalid && email.touched) {
+                            <div class="text-red-600 mt-1">
+                                @if (email.errors?.['required']) { Email is required }
+                                @if (email.errors?.['email']) { Enter a valid email }
+                            </div>
+                            }
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <!-- Phone -->
+                        <div>
+                            <input type="text" placeholder="Phone" name="phone" [(ngModel)]="formData.phone" required
+                                pattern="[0-9]{10,15}" #phone="ngModel" class="w-full p-4 bg-[#ffffff] text-black border border-cyan-400/40 rounded-md
+               focus:outline-none focus:ring-2 focus:ring-cyan-400" />
+
+                            @if (phone.invalid && phone.touched) {
+                            <div class="text-red-600 mt-1">
+                                @if (phone.errors?.['required']) { Phone is required }
+                                @if (phone.errors?.['pattern']) { Enter a valid phone number }
+                            </div>
+                            }
+                        </div>
+
+                        <!-- Website (Optional) -->
+                        <div>
+                            <input type="text" placeholder="Website" name="website" [(ngModel)]="formData.website"
+                                #website="ngModel" class="w-full p-4 bg-[#ffffff] text-black border border-cyan-400/40 rounded-md
+               focus:outline-none focus:ring-2 focus:ring-cyan-400" />
+                            <!-- No validation messages since it's optional -->
+                        </div>
+                    </div>
+
+                    <!-- Message -->
+                    <div>
+                        <textarea rows="4" placeholder="Message*" name="message" [(ngModel)]="formData.message" required
+                            minlength="10" #message="ngModel" class="w-full p-4 bg-[#ffffff] text-black border border-cyan-400/40 rounded-md
+             focus:outline-none focus:ring-2 focus:ring-cyan-400 mb-3 resize-none leading-tight"></textarea>
+
+                        @if (message.invalid && message.touched) {
+                        <div class="text-red-600 mt-1">
+                            @if (message.errors?.['required']) { Message is required }
+                            @if (message.errors?.['minlength']) { Message must be at least 10 characters }
+                        </div>
+                        }
+                    </div>
+
+                    <!-- Submit -->
+                    <button type="submit"
+                        class="bg-cyan-500 hover:bg-cyan-600 text-white font-semibold px-8 py-3 rounded-lg transition"
+                        [disabled]="contactForm.invalid">
+                        SEND MESSAGE
+                    </button>
+
+                </form>
+
+
+
+            </div>
+
         </div>
-
-        <div>
-          <label class="text-lg font-medium text-black">Email</label>
-          <input type="email" class="w-full p-3 mt-1 rounded-md border border-gray-300" placeholder="Email">
-        </div>
-
-        <div>
-          <label class="text-lg font-medium text-black">Phone</label>
-          <input type="tel" class="w-full p-3 mt-1 rounded-md border border-gray-300" placeholder="Phone">
-        </div>
-
-        <div>
-          <label class="text-lg font-medium text-black">Message</label>
-          <textarea rows="4" class="w-full p-3 mt-1 rounded-md border border-gray-300" placeholder="Message"></textarea>
-        </div>
-
-        <button type="submit" class="btn w-full md:w-60
-                 bg-[#3B82F6] text-white
-                 py-3 rounded-lg
-                 hover:bg-blue-700 transition">
-          SEND MESSAGE
-        </button>
-
-      </form>
     </div>
-
-    <div class="w-full md:w-1/3 bg-[#044d6d] p-6 md:p-8 rounded-xl shadow-lg text-white">
-      <h2 class="text-2xl md:text-3xl font-semibold mb-4">
-        Contact Info
-      </h2>
-
-      <div class="space-y-6">
-
-        <div class="flex items-center gap-4">
-          <i class="fas fa-phone-alt text-2xl md:text-4xl"></i>
-          <div>
-            <h3 class="font-semibold">Phone</h3>
-            <p>(021) 37121517</p>
-          </div>
-        </div>
-
-        <div class="flex items-center gap-4">
-          <i class="fas fa-envelope text-2xl md:text-4xl"></i>
-          <div>
-            <h3 class="font-semibold">Email</h3>
-            <p>info@itpanda.org</p>
-          </div>
-        </div>
-
-        <div class="flex items-center gap-4">
-          <i class="fas fa-map-marker-alt text-2xl md:text-4xl"></i>
-          <div>
-            <h3 class="font-semibold">Address</h3>
-            <p>Karachi, Pakistan</p>
-          </div>
-        </div>
-
-        <div>
-          <h3 class="font-semibold mb-3">Follow Us</h3>
-          <div class="flex gap-4">
-            <i class="fab fa-facebook text-2xl md:text-4xl"></i>
-            <i class="fab fa-instagram text-2xl md:text-4xl"></i>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-  </div>
 </section>

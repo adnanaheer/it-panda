@@ -6,7 +6,7 @@ import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',
-  imports: [Testimonial,Form,Topbutton,RouterLink],
+  imports: [Testimonial,Topbutton,RouterLink,Form],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
