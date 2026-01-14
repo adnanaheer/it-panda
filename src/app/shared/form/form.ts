@@ -1,27 +1,46 @@
 import { Component } from '@angular/core';
-import { FormsModule, NgForm } from '@angular/forms';
-import Swal from 'sweetalert2';
 import { CommonModule } from '@angular/common';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-form',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './form.html',
   styleUrls: ['./form.css'],
 })
 export class Form {
-  formData = {
-    name: '',
-    email: '',
-    phone: '',
-    website: '',
-    message: ''
-  };
 
-  onSubmit(form: NgForm) {
-    if (form.invalid) {
-      Object.values(form.controls).forEach(control => control.markAsTouched());
+  contactForm!: FormGroup;
+
+  constructor(private fb: FormBuilder) {
+    this.contactForm = this.fb.group({
+      name: ['', Validators.required],
+
+      email: ['', [
+        Validators.required,
+        Validators.email
+      ]],
+
+      phone: ['', [
+        Validators.required,
+        Validators.pattern(/^[0-9]{10,15}$/)
+      ]],
+
+      website: [''],
+
+      message: ['', [
+        Validators.required,
+        Validators.minLength(10)
+      ]]
+    });
+  }
+
+  onSubmit() {
+    if (this.contactForm.invalid) {
+      this.contactForm.markAllAsTouched();
+
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
@@ -30,13 +49,15 @@ export class Form {
       return;
     }
 
+    console.log(this.contactForm.value);
+
     Swal.fire({
       icon: 'success',
       title: 'Message Sent!',
-      text: 'Thank you for contacting us. We will get back to you soon.',
-      confirmButtonColor: '#0d6efd' 
+      text: 'Thank you for contacting us.',
+      confirmButtonColor: '#0d6efd'
     });
 
-    form.resetForm();
+    this.contactForm.reset();
   }
 }

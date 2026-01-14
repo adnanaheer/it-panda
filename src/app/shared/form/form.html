@@ -46,16 +46,15 @@
                     and we will get in touch with you.
                 </p>
 
-                <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)" class="space-y-5" novalidate>
+                <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="space-y-5" novalidate>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <!-- Name -->
                         <div>
-                            <input type="text" placeholder="Your Name*" name="name" [(ngModel)]="formData.name" required
-                                #name="ngModel" class="w-full p-4 bg-[#ffffff] text-black border border-cyan-400/40 rounded-md
+                            <input type="text" placeholder="Your Name*" formControlName="name" class="w-full p-4 bg-[#ffffff] text-black border border-cyan-400/40 rounded-md
                focus:outline-none focus:ring-2 focus:ring-cyan-400" />
 
-                            @if (name.invalid && name.touched) {
+                            @if (contactForm.get('name')?.invalid && contactForm.get('name')?.touched) {
                             <div class="text-red-600 mt-1">
                                 Name is required
                             </div>
@@ -64,14 +63,13 @@
 
                         <!-- Email -->
                         <div>
-                            <input type="email" placeholder="Email*" name="email" [(ngModel)]="formData.email" required
-                                email #email="ngModel" class="w-full p-4 bg-[#ffffff] text-black border border-cyan-400/40 rounded-md
+                            <input type="email" placeholder="Email*" formControlName="email" class="w-full p-4 bg-[#ffffff] text-black border border-cyan-400/40 rounded-md
                focus:outline-none focus:ring-2 focus:ring-cyan-400" />
 
-                            @if (email.invalid && email.touched) {
+                            @if (contactForm.get('email')?.invalid && contactForm.get('email')?.touched) {
                             <div class="text-red-600 mt-1">
-                                @if (email.errors?.['required']) { Email is required }
-                                @if (email.errors?.['email']) { Enter a valid email }
+                                @if (contactForm.get('email')?.errors?.['required']) { Email is required }
+                                @if (contactForm.get('email')?.errors?.['email']) { Enter a valid email }
                             </div>
                             }
                         </div>
@@ -80,37 +78,34 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <!-- Phone -->
                         <div>
-                            <input type="text" placeholder="Phone" name="phone" [(ngModel)]="formData.phone" required
-                                pattern="[0-9]{10,15}" #phone="ngModel" class="w-full p-4 bg-[#ffffff] text-black border border-cyan-400/40 rounded-md
+                            <input type="text" placeholder="Phone" formControlName="phone" class="w-full p-4 bg-[#ffffff] text-black border border-cyan-400/40 rounded-md
                focus:outline-none focus:ring-2 focus:ring-cyan-400" />
 
-                            @if (phone.invalid && phone.touched) {
+                            @if (contactForm.get('phone')?.invalid && contactForm.get('phone')?.touched) {
                             <div class="text-red-600 mt-1">
-                                @if (phone.errors?.['required']) { Phone is required }
-                                @if (phone.errors?.['pattern']) { Enter a valid phone number }
+                                @if (contactForm.get('phone')?.errors?.['required']) { Phone is required }
+                                @if (contactForm.get('phone')?.errors?.['pattern']) { Enter a valid phone number }
                             </div>
                             }
                         </div>
 
-                        <!-- Website (Optional) -->
+                        <!-- Website -->
                         <div>
-                            <input type="text" placeholder="Website" name="website" [(ngModel)]="formData.website"
-                                #website="ngModel" class="w-full p-4 bg-[#ffffff] text-black border border-cyan-400/40 rounded-md
+                            <input type="text" placeholder="Website" formControlName="website" class="w-full p-4 bg-[#ffffff] text-black border border-cyan-400/40 rounded-md
                focus:outline-none focus:ring-2 focus:ring-cyan-400" />
-                            <!-- No validation messages since it's optional -->
                         </div>
                     </div>
 
                     <!-- Message -->
                     <div>
-                        <textarea rows="4" placeholder="Message*" name="message" [(ngModel)]="formData.message" required
-                            minlength="10" #message="ngModel" class="w-full p-4 bg-[#ffffff] text-black border border-cyan-400/40 rounded-md
+                        <textarea rows="4" placeholder="Message*" formControlName="message" class="w-full p-4 bg-[#ffffff] text-black border border-cyan-400/40 rounded-md
              focus:outline-none focus:ring-2 focus:ring-cyan-400 mb-3 resize-none leading-tight"></textarea>
 
-                        @if (message.invalid && message.touched) {
+                        @if (contactForm.get('message')?.invalid && contactForm.get('message')?.touched) {
                         <div class="text-red-600 mt-1">
-                            @if (message.errors?.['required']) { Message is required }
-                            @if (message.errors?.['minlength']) { Message must be at least 10 characters }
+                            @if (contactForm.get('message')?.errors?.['required']) { Message is required }
+                            @if (contactForm.get('message')?.errors?.['minlength']) { Message must be at least 10
+                            characters }
                         </div>
                         }
                     </div>
@@ -123,6 +118,7 @@
                     </button>
 
                 </form>
+
 
 
 

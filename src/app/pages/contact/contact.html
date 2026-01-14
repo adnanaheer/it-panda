@@ -42,23 +42,85 @@
             <h3 class="text-2xl font-bold text-[#000000] mb-4">Drop Us a Message</h3>
             <p class="text-gray-600 mb-6">If you have any query, send us a message.</p>
 
-            <form class="space-y-4">
-                <input type="text" placeholder="Your Name"
-                    class="mb-3 w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#3B82F6]" />
-                <input type="email" placeholder="Email"
-                    class="mb-3 w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#3B82F6]" />
-                <input type="text" placeholder="Phone"
-                    class="mb-3 w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#3B82F6]" />
-                <input type="text" placeholder="Website"
-                    class="mb-3 w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#3B82F6]" />
-                <textarea placeholder="Message" rows="4"
-                    class="mb-3 w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#3B82F6]"></textarea>
+            <form [formGroup]="contactForm"
+      (ngSubmit)="onSubmit()"
+      class="space-y-4"
+      novalidate>
 
-                <button type="submit"
-                    class="btn w-full bg-linear-to-r from-[#000000] to-[#3B82F6] text-white font-semibold py-3 rounded-lg hover:opacity-90 transition">
-                    SEND MESSAGE
-                </button>
-            </form>
+  <!-- Name -->
+  <input type="text"
+    placeholder="Your Name"
+    formControlName="name"
+    class="mb-3 w-full border border-gray-300 rounded-lg px-4 py-2
+           focus:outline-none focus:ring-2 focus:ring-[#3B82F6]" />
+
+  @if (contactForm.get('name')?.invalid && contactForm.get('name')?.touched) {
+    <div class="text-red-600 text-sm mb-2">
+      Name is required
+    </div>
+  }
+
+  <!-- Email -->
+  <input type="email"
+    placeholder="Email"
+    formControlName="email"
+    class="mb-3 w-full border border-gray-300 rounded-lg px-4 py-2
+           focus:outline-none focus:ring-2 focus:ring-[#3B82F6]" />
+
+  @if (contactForm.get('email')?.invalid && contactForm.get('email')?.touched) {
+    <div class="text-red-600 text-sm mb-2">
+      @if (contactForm.get('email')?.errors?.['required']) { Email is required }
+      @if (contactForm.get('email')?.errors?.['email']) { Enter a valid email }
+    </div>
+  }
+
+  <!-- Phone -->
+  <input type="text"
+    placeholder="Phone"
+    formControlName="phone"
+    class="mb-3 w-full border border-gray-300 rounded-lg px-4 py-2
+           focus:outline-none focus:ring-2 focus:ring-[#3B82F6]" />
+
+  @if (contactForm.get('phone')?.invalid && contactForm.get('phone')?.touched) {
+    <div class="text-red-600 text-sm mb-2">
+      @if (contactForm.get('phone')?.errors?.['required']) { Phone is required }
+      @if (contactForm.get('phone')?.errors?.['pattern']) { Enter a valid phone number }
+    </div>
+  }
+
+  <!-- Website (Optional) -->
+  <input type="text"
+    placeholder="Website"
+    formControlName="website"
+    class="mb-3 w-full border border-gray-300 rounded-lg px-4 py-2
+           focus:outline-none focus:ring-2 focus:ring-[#3B82F6]" />
+
+  <!-- Message -->
+  <textarea rows="4"
+    placeholder="Message"
+    formControlName="message"
+    class="mb-3 w-full border border-gray-300 rounded-lg px-4 py-2
+           focus:outline-none focus:ring-2 focus:ring-[#3B82F6]"></textarea>
+
+  @if (contactForm.get('message')?.invalid && contactForm.get('message')?.touched) {
+    <div class="text-red-600 text-sm mb-2">
+      @if (contactForm.get('message')?.errors?.['required']) { Message is required }
+      @if (contactForm.get('message')?.errors?.['minlength']) {
+        Message must be at least 10 characters
+      }
+    </div>
+  }
+
+  <!-- Submit -->
+  <button type="submit"
+    [disabled]="contactForm.invalid"
+    class="btn w-full bg-linear-to-r from-[#000000] to-[#3B82F6]
+           text-white font-semibold py-3 rounded-lg hover:opacity-90 transition">
+    SEND MESSAGE
+  </button>
+
+</form>
+
         </div>
 
     </div>
