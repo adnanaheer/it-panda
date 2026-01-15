@@ -11,8 +11,8 @@ bootstrapApplication(App, {
     provideRouter(
       routes,
       withInMemoryScrolling({
-        scrollPositionRestoration: 'enabled', // 👈 scroll to top
-        anchorScrolling: 'enabled'            // 👈 allow #anchor scrolling
+        scrollPositionRestoration: 'enabled',
+        anchorScrolling: 'enabled'           
       })
     )
   ]
